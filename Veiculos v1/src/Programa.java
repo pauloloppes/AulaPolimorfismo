@@ -16,6 +16,7 @@ public class Programa {
 	 * @param args Parametros do programa (o programa nao espera nenhum)
      */
     public static void main(String[] args) {
+        System.out.println("Simulador de Veículos");
         simulador = new Simulador();
         
         int opcaoMenu;
