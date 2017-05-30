@@ -21,8 +21,7 @@ public class Trator extends Veiculo {
     
     /**
      * Calcula o imposto do veículo de acordo com seu tipo e características.
-     * Carros flex pagam 90% do imposto base.
-     * Carros comuns pagam 105% do imposto base.
+     * Tratores não pagam impostos.
      * @param cond Condição para cálculo do imposto (carga, nº de passageiros, flex, etc)
      * @return Valor do imposto do veículo
      */

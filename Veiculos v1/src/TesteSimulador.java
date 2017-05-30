@@ -5,6 +5,11 @@
  * @version 2017-05-30
  */
 public class TesteSimulador {
+    
+    /**
+     * Adiciona vários veículos no simulador.
+     * @param s Simulador onde veículos serão adicionados.
+     */
     public static void testar(Simulador s) {
         s.adicionarCarro("F50", "Ferrari", "GZA1234", true);
         s.alterarVelocidadeVeiculo("F50", 240);

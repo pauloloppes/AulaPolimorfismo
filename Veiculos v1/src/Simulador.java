@@ -76,6 +76,20 @@ public class Simulador
     }
     
     /**
+     * Adiciona uma moto ao simulador
+     * 
+     * @param modelo Modelo da moto a ser criada.
+     * @param marca Marca da moto a ser criada.
+     * @param placa Placa da moto a ser criada.
+     * @param cilindradas Cilindradas da moto.
+     */
+    public void adicionarMoto(String modelo, String marca, String placa, int cilindradas) {
+        Moto moto = new Moto(modelo, marca, placa, cilindradas);
+        
+        veiculos.add(moto);
+    }
+    
+    /**
      * Retorna uma String com a descricao de toda a frota do simulador.
      * Cada veiculo aparece em uma linha.
      * Cada veiculo eh represetado como definido pela sua classe.

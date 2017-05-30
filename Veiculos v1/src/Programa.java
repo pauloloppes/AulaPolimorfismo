@@ -18,7 +18,7 @@ public class Programa {
     public static void main(String[] args) {
         System.out.println("Simulador de Veículos");
         simulador = new Simulador();
-        TesteSimulador.testar(simulador);
+        TesteSimulador2.testar(simulador);
         
         int opcaoMenu;
         do {
@@ -76,7 +76,7 @@ public class Programa {
         System.out.print("Digite a placa: ");
         placa = entrada.next();
         
-        System.out.print("Qual o tipo de veiculo (1-carro, 2-caminhao, 3-onibus, 4-trator)? ");
+        System.out.print("Qual o tipo de veiculo (1-carro, 2-caminhao, 3-onibus, 4-trator, 5-moto)? ");
         tipo = entrada.nextInt();
         
         switch(tipo) {
@@ -101,6 +101,12 @@ public class Programa {
                 break;
             case 4: //trator
                 simulador.adicionarTrator(modelo, marca, placa);
+                adicionado = true;
+                break;
+            case 5: //moto
+                System.out.print("Digite as cilindradas da moto: ");
+                int cilindradas = entrada.nextInt();
+                simulador.adicionarMoto(modelo, marca, placa, cilindradas);
                 adicionado = true;
                 break;
             default:
