@@ -63,6 +63,19 @@ public class Simulador
     }
     
     /**
+     * Adiciona um trator ao simulador
+     * 
+     * @param modelo Modelo do trator a ser criado.
+     * @param marca Marca do trator a ser criado.
+     * @param placa Placa do trator a ser criado.
+     */
+    public void adicionarTrator(String modelo, String marca, String placa) {
+        Trator trator = new Trator(modelo, marca, placa);
+        
+        veiculos.add(trator);
+    }
+    
+    /**
      * Retorna uma String com a descricao de toda a frota do simulador.
      * Cada veiculo aparece em uma linha.
      * Cada veiculo eh represetado como definido pela sua classe.
