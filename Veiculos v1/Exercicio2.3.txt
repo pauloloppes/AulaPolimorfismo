@@ -1,0 +1,31 @@
+a) Quais são as variáveis polimórficas utilizadas.
+
+Na classe Simulador, ao percorrer a lista de veículos nos métodos getDescricaoFrota e buscarVeiculo, é feito um for each usando uma variável do tipo Veiculo. Essa variável pode receber todos os itens da lista, que é composta de tipos Carro, Caminhao, Onibus, Trator e Moto, todos que herdam de Veiculo. Em alterarVelocidadeVeiculo, uma variável Veiculo recebe de buscarVeiculo uma variável com um dos tipos que herdam dele. Em adicionarCarro, há uma variável Veiculo que recebe um novo Carro.
+
+
+
+
+b) Identifique algum ponto no código onde está sendo usado o princípio da substituição.
+
+Na classe Simulador, ao percorrer a lista de veículos nos métodos getDescricaoFrota e buscarVeiculo, é feito um for each usando uma variável do tipo Veiculo. Essa variável pode receber todos os itens da lista, que é composta de tipos Carro, Caminhao, Onibus, Trator e Moto, todos que herdam de Veiculo.
+
+
+
+
+c) Identifique algum ponto no código onde uma variável tem tipo estático e tipo dinâmico diferentes (indique qual é a variável e quais são os tipos).
+
+Quando é feito o processo de adicionar carro, haverá em Simulador uma variável de tipo estático Veiculo que receberá uma instância de tipo Carro.
+
+
+
+
+d) Identifique algum ponto no código onde ocorre o dynamic dispatch. Indique a variável, a chamada do método e as classes que têm os métodos que estão sendo chamados dependendo de cada situação.
+
+Na classe Simulador, no método getDescricaoFrota, é feito um for each na lista de veículos usando a variável v do tipo Veiculos. Dentro do for each, é chamado o método getDescricao de v. De acordo com o tipo dinâmico de v, é chamado o getDescricao de Carro, ou de Caminhao, ou Onibus, Trator ou Moto.
+
+
+
+
+e) Identifique onde está sendo usado polimorfismo de método e explique como ele funciona.
+
+Em Veiculo, há um método setImposto que chama o método calculaImposto. calculaImposto em Veiculo retorna o valor de imposto base. Nas classes que herdam de veículo também há o método calculaImposto, que retorna o imposto calculado de acordo com as peculiaridades de cada tipo. Na hora da execução, o método setImposto, que só existe em Veiculo, chama o calculaImposto do subtipo de Veiculo.
