@@ -21,8 +21,27 @@ public class Caminhao extends Veiculo
      * @param capacidadeCarga Capacidade de carga do caminhao (em toneladas).
      */
     public Caminhao(String modelo, String marca, String placa, double capacidadeCarga) {
-        super(modelo, marca, placa);
+        super(modelo, marca, placa, Double.toString(capacidadeCarga));
         this.capacidadeCarga = capacidadeCarga;
+    }
+    
+    /**
+     * Calcula o imposto do veículo de acordo com seu tipo e características.
+     * Caminhões com capacidade de carga de menos de 10 ton. pagam 90% do imposto base.
+     * Caminhões com capacidade de carga de mais de 30 ton. pagam 300% do imposto base.
+     * Resto paga o valor base.
+     * @param cond Condição para cálculo do imposto (carga, nº de passageiros, flex, etc)
+     * @return Valor do imposto do veículo
+     */
+    @Override
+    protected double calculaImposto(String cond) {
+        double capacidadeCarga = Double.valueOf(cond);
+        if (capacidadeCarga < 10) {
+            return Veiculo.getImpostoBase() * 0.9;
+        } else if (capacidadeCarga > 30) {
+            return Veiculo.getImpostoBase() * 3;
+        }
+        return Veiculo.getImpostoBase();
     }
 
     /**

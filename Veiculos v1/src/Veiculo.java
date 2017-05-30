@@ -12,6 +12,8 @@ public class Veiculo {
     private String marca;
     private String placa;
     private int velocidadeAtual;
+    private double imposto;
+    private static final double impostoBase = 100;
     
     /*
      * Constroi o objeto a partir do modelo, marca e placa passados.
@@ -20,12 +22,31 @@ public class Veiculo {
      * @param modelo Modelo do veículo a ser criado.
      * @param marca Marca do veiculo a ser criado.
      * @param placa Placa do veiculo a ser criado.
+     * @param cond Condição para criação do imposto.
      */
-    public Veiculo(String modelo, String marca, String placa) {
+    public Veiculo(String modelo, String marca, String placa, String cond) {
         this.modelo = modelo;
         this.marca = marca;
         this.placa = placa;
         velocidadeAtual = 0;
+        setImposto(cond);
+    }
+    
+    /**
+     * Determina o novo valor do imposto do determinado veículo.
+     * @param cond Condição para cálculo do imposto (carga, nº de passageiros, flex, etc)
+     */
+    private void setImposto(String cond) {
+        imposto = calculaImposto(cond);
+    }
+    
+    /**
+     * Calcula o imposto do veículo de acordo com seu tipo e características.
+     * @param cond Condição para cálculo do imposto (carga, nº de passageiros, flex, etc)
+     * @return Valor do imposto do veículo
+     */
+    protected double calculaImposto(String cond) {
+        return Veiculo.getImpostoBase();
     }
     
     /**
@@ -88,6 +109,15 @@ public class Veiculo {
 	 * @return A descricao do veiculo (seus campos separados por tabulacoes)
      */
     public String getDescricao() {
-        return placa + "\t" + modelo + "\t" + marca + "\t" + velocidadeAtual + " Km/h";
+        return placa + "\t" + modelo + "\t" + marca + "\tR$ " + imposto + "\t" + velocidadeAtual + " Km/h";
+    }
+    
+    
+    /**
+     * Retorna o valor do imposto base para todos os veículos.
+     * @return Valor do imposto base.
+     */
+    public static double getImpostoBase() {
+        return Veiculo.impostoBase;
     }
 }

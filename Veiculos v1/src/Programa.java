@@ -115,7 +115,7 @@ public class Programa {
      * O usuario informa o tipo de veiculo e o modelo.
      */
     private static void alterarVelocidadeVeiculo() {
-        int tipo, velocidade;
+        int velocidade;
         String modelo;
         boolean alterou = false;
         Scanner entrada = new Scanner(System.in);

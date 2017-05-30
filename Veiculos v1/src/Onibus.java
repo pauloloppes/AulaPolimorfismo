@@ -20,8 +20,24 @@ public class Onibus extends Veiculo {
      * @param capacidadePassageiros Quantidade de passageiros que o onibus pode carregar.
      */
     public Onibus(String modelo, String marca, String placa, int capacidadePassageiros) {
-        super(modelo, marca, placa);
+        super(modelo, marca, placa, Integer.toString(capacidadePassageiros));
         this.capacidadePassageiros = capacidadePassageiros;
+    }
+    
+    /**
+     * Calcula o imposto do veículo de acordo com seu tipo e características.
+     * Ônibus com capacidade para menos que 30 passageiros não pagam imposto.
+     * O resto dos ônibus pagam imposto base.
+     * @param cond Condição para cálculo do imposto (carga, nº de passageiros, flex, etc)
+     * @return Valor do imposto do veículo
+     */
+    @Override
+    protected double calculaImposto(String cond) {
+        int capacidadePassageiros = Integer.valueOf(cond);
+        if (capacidadePassageiros < 30) {
+            return 0;
+        }
+        return Veiculo.getImpostoBase();
     }
 
     /**

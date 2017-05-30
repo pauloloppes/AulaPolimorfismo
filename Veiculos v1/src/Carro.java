@@ -20,8 +20,24 @@ public class Carro extends Veiculo {
      * @param ehFlex Indica se o carro eh flex ou nao (em relacao ao combustivel)
      */
     public Carro(String modelo, String marca, String placa, boolean ehFlex) {
-        super(modelo, marca, placa);
+        super(modelo, marca, placa, Boolean.toString(ehFlex));
         this.ehFlex = ehFlex;
+    }
+    
+    /**
+     * Calcula o imposto do veículo de acordo com seu tipo e características.
+     * Carros flex pagam 90% do imposto base.
+     * Carros comuns pagam 105% do imposto base.
+     * @param cond Condição para cálculo do imposto (carga, nº de passageiros, flex, etc)
+     * @return Valor do imposto do veículo
+     */
+    @Override
+    protected double calculaImposto(String cond) {
+        boolean ehFlex = Boolean.valueOf(cond);
+        if (ehFlex) {
+            return Veiculo.getImpostoBase() * 0.9;
+        }
+        return Veiculo.getImpostoBase() * 1.05;
     }
 
     /**
